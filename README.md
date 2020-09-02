@@ -9,7 +9,7 @@ provider "azurerm" {
 ```
 #### Create a file main.tf with below content
 ```
-module "cluster" {
+module "aks" {
     source                                  =   "farrukh90/aks/azure"
     cluster_name                            =   "example-aks1"
     kubernetes_version                      =   "1.18.4"
@@ -30,53 +30,53 @@ module "cluster" {
 ## Below is the output you can take
 ```
 output "client_certificate" {
-  value = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
+  value = module.aks.outputs.client_certificate
 }
 
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.example.kube_config_raw
+  value = module.aks.outputs.kube_config
 }
 output "cluster_id" {
-  value = azurerm_kubernetes_cluster.example.id
+  value = module.aks.outputs.cluster_id
 }
 
 output "cluster_name" {
-  value = azurerm_kubernetes_cluster.example.name
+  value = module.aks.outputs.cluster_name
 }
 
 output "client_key" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].client_key
+  value = module.aks.outputs.client_key
 }
 
 output "client_certificate_output" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].client_certificate
+  value = module.aks.outputs.client_certificate_output
 }
 
 output "cluster_ca_certificate" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].cluster_ca_certificate
+  value = module.aks.outputs.cluster_ca_certificate
 }
 
 output "host" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].host
+  value = module.aks.outputs.host
 }
 
 output "username" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].username
+  value = module.aks.outputs.username
 }
 
 output "password" {
-  value = azurerm_kubernetes_cluster.example.kube_config[0].password
+  value = module.aks.outputs.password
 }
 
 output "raw_kube_config" {
-  value = azurerm_kubernetes_cluster.example.kube_config_raw
+  value = module.aks.outputs.raw_kube_config
 }
 
 output "location" {
-  value = azurerm_kubernetes_cluster.example.location
+  value = module.aks.outputs.location
 }
 
 output "kube_config_raw" {
-  value = azurerm_kubernetes_cluster.example.kube_config_raw
+  value = module.aks.outputs.kube_config_raw
 }
 ```
