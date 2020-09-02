@@ -2,6 +2,13 @@
 
 
 ```
+provider "azurerm" {
+  version = "=2.0.0"
+  features {}
+}
+```
+#### Create a file main.tf with below content
+```
 module "cluster" {
     source                                  =   "farrukh90/aks/azure"
     cluster_name                            =   "example-aks1"
