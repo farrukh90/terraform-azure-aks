@@ -3,6 +3,7 @@
 
 ```
 module "cluster" {
+    source                                  =   "farrukh90/azure/aks"
     cluster_name                            =   "example-aks1"
     kubernetes_version                      =   "1.18.4"
     node_pool_name                          =   "node1"
