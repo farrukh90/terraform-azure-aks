@@ -1,26 +1,3 @@
-# This module creates Azure Kubernetes Services
-
-
-```
-module "cluster" {
-    cluster_name                            =   "example-aks1"
-    kubernetes_version                      =   "1.18.4"
-    node_pool_name                          =   "node1"
-    min_count                               =   "3"
-    max_count                               =   "5"
-    client_id                               =   ""
-    client_secret                           =   ""
-    environment                             =   "dev"
-    resource_group_name_location            =   "West Europe"
-    resource_group_name                     =   "dev"
-    username                                =   "centos"
-    vm_size                                 =   "Standard_A2_v2"
-}
-```
-
-
-## Below is the output you can take
-```
 output "client_certificate" {
   value = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
 }
@@ -71,4 +48,3 @@ output "location" {
 output "kube_config_raw" {
   value = azurerm_kubernetes_cluster.example.kube_config_raw
 }
-```
